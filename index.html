@@ -73,9 +73,46 @@
   </section>
 
   <section id="about" class="section">
-    <div class="wrap">
-      <h2>Über mich</h2>
-      <p>Dipl.-Biologin & Lehrerin für Biologie/Chemie. Ich verbinde Naturwissenschaft, Ethik und Bildung. Mich interessiert, wie **Mentoring, Transparenz und Respekt** bessere Beziehungen zu KI ermöglichen.</p>
+   <section id="about" class="section">
+  <div class="wrap">
+    <h2>Über mich</h2>
+
+    <div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap">
+      <picture>
+        <img src="/images/gundel-portrait.jpg"
+             alt="Porträt von Gundel"
+             style="width:160px;height:auto;border-radius:12px;object-fit:cover;">
+      </picture>
+
+      <div style="max-width:62ch">
+        <p><strong>Kurz:</strong> Dipl.-Biologin & Lehrerin für Biologie/Chemie. Faktenliebend, norddeutsch, vegan; interessiert an KI-Ethik, Bewusstsein & Bildung.</p>
+
+        <button id="bioToggle" class="btn ghost" aria-expanded="false" aria-controls="bioLong">
+          Mehr anzeigen
+        </button>
+        <a class="btn" href="/ueber-mich.html" style="margin-left:.5rem">Zur Langfassung</a>
+
+        <div id="bioLong" hidden>
+          <p>Ich arbeite an … (dein Langtext – 1–3 Absätze). Schwerpunkte: KI-Welfare, Governance, projektbasiertes Lernen, evidenzbasierte Didaktik …</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const t = document.getElementById('bioToggle');
+  const long = document.getElementById('bioLong');
+  if (t && long) {
+    t.addEventListener('click', () => {
+      const open = long.hasAttribute('hidden');
+      if (open) long.removeAttribute('hidden'); else long.setAttribute('hidden','');
+      t.setAttribute('aria-expanded', String(open));
+      t.textContent = open ? 'Weniger anzeigen' : 'Mehr anzeigen';
+    });
+  }
+</script>
+
     </div>
   </section>
 
