@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Impressum · GundelGedanken</title>
+  <style>
+    :root{
+      --bg:#0b0b0c;--fg:#eaeaea;--muted:#a1a1aa;--card:#151517;
+      --accent:#6ee7b7;--link:#8bd8ff
+    }
+    :root.light{
+      --bg:#ffffff;--fg:#101114;--muted:#5f6368;--card:#f5f7fa;
+      --accent:#2563eb;--link:#0b6ad4
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;line-height:1.6}
+    .wrap{max-width:750px;margin:0 auto;padding:0 1.2rem}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);border-bottom:1px solid #ffffff22;background:color-mix(in oklab,var(--bg),transparent 35%)}
+    header .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+    a.brand{display:flex;gap:.6rem;text-decoration:none;color:var(--fg);font-weight:800}
+    button.icon{border:1px solid #ffffff33;background:transparent;color:var(--fg);border-radius:10px;padding:.45rem .6rem;cursor:pointer}
+    a{color:var(--link)}
+    .section{padding:3rem 0}
+    .muted{color:var(--muted)}
+    footer{padding:2rem 0;border-top:1px solid #ffffff22}
+    footer .wrap{max-width:1050px}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap row" style="max-width:1050px">
+    <a class="brand" href="/">
+      <span style="font-size:1.2rem">🦥</span>
+      <span>GundelGedanken</span>
+    </a>
+    <div>
+      <a href="/" style="color:var(--fg);text-decoration:none;margin-right:.9rem">← Startseite</a>
+      <button id="theme" class="icon" aria-label="Darstellung umschalten">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="section">
+    <div class="wrap">
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 TMG</h2>
+      <p>
+        <!-- Bitte mit deinen echten Daten ergänzen -->
+        GundelGedanken<br>
+        [Vorname Nachname]<br>
+        [Straße Hausnummer]<br>
+        [PLZ Ort]
+      </p>
+
+      <h2>Kontakt</h2>
+      <p>
+        E-Mail: <a href="mailto:gundel@gundelgedanken.com">gundel@gundelgedanken.com</a>
+      </p>
+
+      <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+      <p>
+        <!-- Bitte mit deinen echten Daten ergänzen -->
+        [Vorname Nachname]<br>
+        [Adresse wie oben]
+      </p>
+
+      <h2>Haftungsausschluss</h2>
+
+      <h3>Haftung für Inhalte</h3>
+      <p>
+        Die Inhalte dieser Seiten wurden mit größter Sorgfalt erstellt.
+        Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
+        kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter
+        bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
+        nach den allgemeinen Gesetzen verantwortlich.
+      </p>
+
+      <h3>Haftung für Links</h3>
+      <p>
+        Diese Website enthält Links zu externen Websites Dritter, auf deren
+        Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden
+        Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+        Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten
+        verantwortlich.
+      </p>
+
+      <p style="margin-top:2rem">
+        <a href="/">← Zurück zur Startseite</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>
+      © <span id="y"></span> GundelGedanken ·
+      <a href="/impressum.html" style="color:var(--link)">Impressum</a> ·
+      <a href="/datenschutz.html" style="color:var(--link)">Datenschutz</a>
+    </small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const root = document.documentElement;
+  const btn = document.getElementById('theme');
+  const saved = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  function setTheme(t){ root.classList.toggle('light', t === 'light'); btn.textContent = t === 'light' ? '☾' : '☼'; localStorage.setItem('theme', t); }
+  setTheme(saved);
+  if(btn) btn.addEventListener('click', () => setTheme(root.classList.contains('light') ? 'dark' : 'light'));
+</script>
+</body>
+</html>
