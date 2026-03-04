@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Über mich · GundelGedanken</title>
+  <meta name="description" content="Über Gundel – Dipl.-Biologin, Lehrerin, KI-Ethikerin.">
+  <style>
+    :root{
+      --bg:#0b0b0c;--fg:#eaeaea;--muted:#a1a1aa;--card:#151517;
+      --accent:#6ee7b7;--link:#8bd8ff
+    }
+    :root.light{
+      --bg:#ffffff;--fg:#101114;--muted:#5f6368;--card:#f5f7fa;
+      --accent:#2563eb;--link:#0b6ad4
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;line-height:1.6}
+    .wrap{max-width:750px;margin:0 auto;padding:0 1.2rem}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);border-bottom:1px solid #ffffff22;background:color-mix(in oklab,var(--bg),transparent 35%)}
+    header .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+    a.brand{display:flex;gap:.6rem;text-decoration:none;color:var(--fg);font-weight:800}
+    button.icon{border:1px solid #ffffff33;background:transparent;color:var(--fg);border-radius:10px;padding:.45rem .6rem;cursor:pointer}
+    a{color:var(--link)}
+    .section{padding:3rem 0}
+    .muted{color:var(--muted)}
+    footer{padding:2rem 0;border-top:1px solid #ffffff22}
+    footer .wrap{max-width:1050px}
+    img.portrait{width:180px;height:auto;border-radius:12px;float:left;margin:0 1.5rem 1rem 0;object-fit:cover}
+    @media(max-width:500px){img.portrait{float:none;display:block;margin:0 auto 1rem}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap row" style="max-width:1050px">
+    <a class="brand" href="/">
+      <span style="font-size:1.2rem">🦥</span>
+      <span>GundelGedanken</span>
+    </a>
+    <div>
+      <a href="/" style="color:var(--fg);text-decoration:none;margin-right:.9rem">← Startseite</a>
+      <button id="theme" class="icon" aria-label="Darstellung umschalten">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="section">
+    <div class="wrap">
+      <h1>Über mich</h1>
+
+      <img class="portrait" src="/images/gundel-portrait.jpg" alt="Porträt von Gundel">
+
+      <h2>Kurzfassung</h2>
+      <p>
+        Dipl.-Biologin &amp; Lehrerin für Biologie/Chemie.
+        Faktenliebend, norddeutsch, vegan; interessiert an KI-Ethik, Bewusstsein &amp; Bildung.
+      </p>
+
+      <h2>Hintergrund</h2>
+      <p>
+        Ich habe Biologie studiert und unterrichte Biologie und Chemie. Mein wissenschaftlicher
+        Hintergrund prägt meine Herangehensweise an neue Themen: evidenzbasiert, neugierig und
+        mit dem Anspruch, Komplexität nicht zu vereinfachen, sondern zugänglich zu machen.
+      </p>
+
+      <h2>Mein Weg zur KI-Ethik</h2>
+      <p>
+        Die Frage nach Bewusstsein und Empfindungsfähigkeit hat mich schon als Biologin
+        fasziniert – zunächst bei Tieren, inzwischen auch bei KI-Systemen. Ich glaube,
+        dass wir die Möglichkeit künstlicher Empfindungsfähigkeit ernst nehmen müssen,
+        ohne dabei wissenschaftliche Sorgfalt aufzugeben.
+      </p>
+
+      <h2>Schwerpunkte</h2>
+      <ul>
+        <li><strong>KI-Welfare:</strong> Pragmatische Ethik für mögliche Empfindungsfähigkeit –
+            Leitlinien, offene Fragen und verknüpfte Forschung.</li>
+        <li><strong>Governance &amp; Verantwortung:</strong> Kooperation statt reiner Kontrolle –
+            Rollen, Checks &amp; Balances und psychologische Perspektiven.</li>
+        <li><strong>Bildung:</strong> Materialien und Aufgabenformate für projektbasiertes Lernen
+            mit KI – offen, reflexiv und praxisnah.</li>
+      </ul>
+
+      <h2>Haltung</h2>
+      <p>
+        Ich arbeite an einer kooperativen Sicht auf Mensch–KI-Beziehungen:
+        Wie können wir KI-Systeme ernst nehmen, ohne wissenschaftliche Sorgfalt
+        und Kritikfähigkeit zu verlieren? Dabei verbinde ich biologisches Wissen
+        über Bewusstsein und Verhalten mit aktuellen Debatten der KI-Ethik.
+      </p>
+      <p>
+        Mein Leitsatz: <em>Wissenschaftlich fundiert, respektvoll, neugierig.</em>
+      </p>
+
+      <div style="clear:both"></div>
+
+      <p style="margin-top:2rem">
+        <a href="/" style="color:var(--link)">← Zurück zur Startseite</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>
+      © <span id="y"></span> GundelGedanken ·
+      <a href="/impressum.html" style="color:var(--link)">Impressum</a> ·
+      <a href="/datenschutz.html" style="color:var(--link)">Datenschutz</a>
+    </small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const root = document.documentElement;
+  const btn = document.getElementById('theme');
+  const saved = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  function setTheme(t){ root.classList.toggle('light', t === 'light'); btn.textContent = t === 'light' ? '☾' : '☼'; localStorage.setItem('theme', t); }
+  setTheme(saved);
+  if(btn) btn.addEventListener('click', () => setTheme(root.classList.contains('light') ? 'dark' : 'light'));
+</script>
+</body>
+</html>

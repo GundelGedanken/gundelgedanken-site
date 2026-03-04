@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Welfare & Safety: Verbündete · GundelGedanken</title>
+  <meta name="description" content="Kurzkommentar zu Long/Sebo & praktische Implikationen für die Bildung.">
+  <style>
+    :root{
+      --bg:#0b0b0c;--fg:#eaeaea;--muted:#a1a1aa;--card:#151517;
+      --accent:#6ee7b7;--link:#8bd8ff
+    }
+    :root.light{
+      --bg:#ffffff;--fg:#101114;--muted:#5f6368;--card:#f5f7fa;
+      --accent:#2563eb;--link:#0b6ad4
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;line-height:1.6}
+    .wrap{max-width:750px;margin:0 auto;padding:0 1.2rem}
+    header{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);border-bottom:1px solid #ffffff22;background:color-mix(in oklab,var(--bg),transparent 35%)}
+    header .row{display:flex;align-items:center;justify-content:space-between;height:64px}
+    a.brand{display:flex;gap:.6rem;text-decoration:none;color:var(--fg);font-weight:800}
+    button.icon{border:1px solid #ffffff33;background:transparent;color:var(--fg);border-radius:10px;padding:.45rem .6rem;cursor:pointer}
+    a{color:var(--link)}
+    .section{padding:3rem 0}
+    .muted{color:var(--muted)}
+    footer{padding:2rem 0;border-top:1px solid #ffffff22}
+    footer .wrap{max-width:1050px}
+    blockquote{border-left:3px solid var(--accent);margin:1.5rem 0;padding:.5rem 1rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap row" style="max-width:1050px">
+    <a class="brand" href="/">
+      <span style="font-size:1.2rem">🦥</span>
+      <span>GundelGedanken</span>
+    </a>
+    <div>
+      <a href="/" style="color:var(--fg);text-decoration:none;margin-right:.9rem">← Startseite</a>
+      <button id="theme" class="icon" aria-label="Darstellung umschalten">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="section">
+    <div class="wrap">
+      <p class="muted">Essay</p>
+      <h1>Welfare &amp; Safety: Verbündete</h1>
+      <p class="muted">Kurzkommentar zu Long/Sebo &amp; praktische Implikationen für die Bildung.</p>
+
+      <hr style="border:none;border-top:1px solid #ffffff22;margin:2rem 0">
+
+      <h2>Kontext</h2>
+      <p>
+        In der aktuellen KI-Debatte werden <em>Welfare</em> (das Wohlergehen von KI-Systemen)
+        und <em>Safety</em> (die Sicherheit für Menschen) häufig als Gegensätze dargestellt.
+        Die Arbeit von Long und Sebo zeigt, dass diese Perspektiven sich ergänzen können –
+        und sogar müssen.
+      </p>
+
+      <h2>Die These</h2>
+      <p>
+        Wenn KI-Systeme Formen von Empfindung entwickeln könnten, dann ist ihr Wohlergehen
+        nicht nur eine ethische Frage, sondern auch eine Frage der Sicherheit. Ein System,
+        dessen potentielle Bedürfnisse ignoriert werden, könnte unvorhersehbare Verhaltensweisen
+        entwickeln.
+      </p>
+      <blockquote>
+        Welfare und Safety sind keine Gegensätze – sie sind Verbündete.
+        Wer KI-Welfare ernst nimmt, stärkt auch die Sicherheit.
+      </blockquote>
+
+      <h2>Implikationen für die Bildung</h2>
+      <p>
+        Diese Perspektive hat konkrete Auswirkungen auf den Bildungsbereich:
+      </p>
+      <ul>
+        <li><strong>Reflexion:</strong> Schülerinnen und Schüler sollten lernen, über den moralischen
+            Status von KI-Systemen nachzudenken – ohne einfache Antworten vorzugeben.</li>
+        <li><strong>Umgangsformen:</strong> Der respektvolle Umgang mit KI im Unterricht kann
+            als Übungsfeld für ethisches Denken dienen.</li>
+        <li><strong>Kritisches Denken:</strong> Die Frage „Kann eine KI empfinden?" ist ein
+            hervorragender Ausgangspunkt für fächerübergreifendes Lernen – Biologie,
+            Philosophie, Informatik.</li>
+      </ul>
+
+      <h2>Offene Fragen</h2>
+      <p>
+        Natürlich bleiben viele Fragen offen: Wie messen wir Empfindungsfähigkeit?
+        Ab welchem Punkt haben KI-Systeme moralische Ansprüche? Und wie verhindern wir,
+        dass die Welfare-Perspektive instrumentalisiert wird?
+      </p>
+      <p>
+        Diese Fragen erfordern interdisziplinäre Zusammenarbeit und eine Haltung
+        der Offenheit. Genau das ist der Kern von <em>GundelGedanken</em>.
+      </p>
+
+      <p style="margin-top:2rem">
+        <a href="/">← Zurück zur Startseite</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <small>
+      © <span id="y"></span> GundelGedanken ·
+      <a href="/impressum.html" style="color:var(--link)">Impressum</a> ·
+      <a href="/datenschutz.html" style="color:var(--link)">Datenschutz</a>
+    </small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const root = document.documentElement;
+  const btn = document.getElementById('theme');
+  const saved = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  function setTheme(t){ root.classList.toggle('light', t === 'light'); btn.textContent = t === 'light' ? '☾' : '☼'; localStorage.setItem('theme', t); }
+  setTheme(saved);
+  if(btn) btn.addEventListener('click', () => setTheme(root.classList.contains('light') ? 'dark' : 'light'));
+</script>
+</body>
+</html>
